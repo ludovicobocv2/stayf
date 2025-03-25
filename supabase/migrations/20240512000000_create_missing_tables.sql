@@ -68,7 +68,13 @@ ALTER TABLE public.mood_records ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.medications ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.medication_doses ENABLE ROW LEVEL SECURITY;
 
--- Políticas RLS para tabela priorities
+-- Remover políticas existentes da tabela priorities
+DROP POLICY IF EXISTS "Usuários podem inserir suas próprias prioridades" ON public.priorities;
+DROP POLICY IF EXISTS "Usuários podem ver suas próprias prioridades" ON public.priorities;
+DROP POLICY IF EXISTS "Usuários podem atualizar suas próprias prioridades" ON public.priorities;
+DROP POLICY IF EXISTS "Usuários podem excluir suas próprias prioridades" ON public.priorities;
+
+-- Criar novas políticas para tabela priorities
 CREATE POLICY "Usuários podem inserir suas próprias prioridades" 
   ON public.priorities FOR INSERT 
   WITH CHECK (auth.uid() = user_id);
@@ -85,7 +91,13 @@ CREATE POLICY "Usuários podem excluir suas próprias prioridades"
   ON public.priorities FOR DELETE 
   USING (auth.uid() = user_id);
 
--- Políticas RLS para tabela mood_records
+-- Remover políticas existentes da tabela mood_records
+DROP POLICY IF EXISTS "Usuários podem inserir seus próprios registros de humor" ON public.mood_records;
+DROP POLICY IF EXISTS "Usuários podem ver seus próprios registros de humor" ON public.mood_records;
+DROP POLICY IF EXISTS "Usuários podem atualizar seus próprios registros de humor" ON public.mood_records;
+DROP POLICY IF EXISTS "Usuários podem excluir seus próprios registros de humor" ON public.mood_records;
+
+-- Criar novas políticas para tabela mood_records
 CREATE POLICY "Usuários podem inserir seus próprios registros de humor" 
   ON public.mood_records FOR INSERT 
   WITH CHECK (auth.uid() = user_id);
@@ -102,7 +114,13 @@ CREATE POLICY "Usuários podem excluir seus próprios registros de humor"
   ON public.mood_records FOR DELETE 
   USING (auth.uid() = user_id);
 
--- Políticas RLS para tabela medications
+-- Remover políticas existentes da tabela medications
+DROP POLICY IF EXISTS "Usuários podem inserir seus próprios medicamentos" ON public.medications;
+DROP POLICY IF EXISTS "Usuários podem ver seus próprios medicamentos" ON public.medications;
+DROP POLICY IF EXISTS "Usuários podem atualizar seus próprios medicamentos" ON public.medications;
+DROP POLICY IF EXISTS "Usuários podem excluir seus próprios medicamentos" ON public.medications;
+
+-- Criar novas políticas para tabela medications
 CREATE POLICY "Usuários podem inserir seus próprios medicamentos" 
   ON public.medications FOR INSERT 
   WITH CHECK (auth.uid() = user_id);
@@ -119,7 +137,13 @@ CREATE POLICY "Usuários podem excluir seus próprios medicamentos"
   ON public.medications FOR DELETE 
   USING (auth.uid() = user_id);
 
--- Políticas RLS para tabela medication_doses
+-- Remover políticas existentes da tabela medication_doses
+DROP POLICY IF EXISTS "Usuários podem inserir suas próprias doses de medicamentos" ON public.medication_doses;
+DROP POLICY IF EXISTS "Usuários podem ver suas próprias doses de medicamentos" ON public.medication_doses;
+DROP POLICY IF EXISTS "Usuários podem atualizar suas próprias doses de medicamentos" ON public.medication_doses;
+DROP POLICY IF EXISTS "Usuários podem excluir suas próprias doses de medicamentos" ON public.medication_doses;
+
+-- Criar novas políticas para tabela medication_doses
 CREATE POLICY "Usuários podem inserir suas próprias doses de medicamentos" 
   ON public.medication_doses FOR INSERT 
   WITH CHECK (auth.uid() = user_id);
