@@ -24,6 +24,16 @@ export default function TestPage() {
                   Dashboard
                 </Link>
               </li>
+              <li>
+                <Link href="/test/supabase" className="hover:text-blue-200">
+                  Teste Supabase
+                </Link>
+              </li>
+              <li>
+                <Link href="/test/auth" className="hover:text-blue-200">
+                  Teste Autenticação
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -50,6 +60,26 @@ export default function TestPage() {
                     <strong>Atenção:</strong> Estes testes manipulam dados reais no banco de dados. 
                     Use apenas em ambientes de desenvolvimento ou teste.
                   </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mb-6">
+              <h3 className="font-medium text-lg mb-2">Testes Disponíveis</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Link href="/test/supabase" className="bg-blue-50 border border-blue-200 p-4 rounded-md hover:bg-blue-100 transition-colors">
+                  <div className="font-semibold text-blue-800">Teste de Conexão Supabase</div>
+                  <p className="text-sm text-gray-600">Verifique a conexão com o Supabase e a existência das tabelas necessárias</p>
+                </Link>
+                
+                <Link href="/test/auth" className="bg-green-50 border border-green-200 p-4 rounded-md hover:bg-green-100 transition-colors">
+                  <div className="font-semibold text-green-800">Teste de Autenticação</div>
+                  <p className="text-sm text-gray-600">Teste o registro e login de usuários no Supabase</p>
+                </Link>
+                
+                <div className="bg-gray-50 border border-gray-200 p-4 rounded-md">
+                  <div className="font-semibold text-gray-800">Teste de Sincronização</div>
+                  <p className="text-sm text-gray-600">Disponível abaixo - Valide a sincronização de dados entre dispositivos</p>
                 </div>
               </div>
             </div>
