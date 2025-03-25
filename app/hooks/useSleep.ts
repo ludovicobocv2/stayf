@@ -37,13 +37,6 @@ export function useSleep() {
     };
   }, []);
   
-  // Função segura para atualizar state
-  const safeSetState = useCallback(<T>(setter: React.Dispatch<React.SetStateAction<T>>, value: T) => {
-    if (isMounted.current) {
-      setter(value);
-    }
-  }, []);
-  
   // Função para limpar erros
   const resetError = useCallback(() => {
     if (isMounted.current) {
@@ -57,8 +50,10 @@ export function useSleep() {
   const getSleepRecords = useCallback(async (): Promise<SleepRecord[]> => {
     if (!user || !isMounted.current) return [];
     
-    safeSetState(setIsLoading, true);
-    safeSetState(setError, null);
+    if (isMounted.current) {
+      setIsLoading(true);
+      setError(null);
+    }
     
     try {
       const { data, error } = await supabase
@@ -73,15 +68,15 @@ export function useSleep() {
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Erro ao buscar registros de sono';
       if (isMounted.current) {
-        safeSetState(setError, new Error(errorMessage));
+        setError(new Error(errorMessage));
       }
       return [];
     } finally {
       if (isMounted.current) {
-        safeSetState(setIsLoading, false);
+        setIsLoading(false);
       }
     }
-  }, [user, supabase, safeSetState]);
+  }, [user, supabase]);
   
   // Obter um registro de sono específico por ID
   const getSleepRecord = useCallback(async (id: string): Promise<SleepRecord | null> => {
