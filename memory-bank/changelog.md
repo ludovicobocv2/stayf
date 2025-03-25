@@ -1,6 +1,6 @@
 # Histórico de Alterações (Changelog)
 
-**Status**: [CURRENT] | Última atualização: 24/03/2025 | Versão: 1.7
+**Status**: [CURRENT] | Última atualização: 25/03/2025 | Versão: 1.8
 
 ## Introdução
 Este documento registra todas as alterações significativas na documentação do projeto, fornecendo um histórico cronológico de mudanças, versões e atualizações.
@@ -10,9 +10,14 @@ Este changelog registra atualizações em vários documentos do Memory Bank, com
 
 ## Registros de Alterações
 
-### 24/03/2025 - Versão 1.7
-- **debug_mode.md (v1.0)**: Criado documento para definir procedimentos e metodologias do modo Debug.
-- **activeContext.md (v2.5)**: Mantido atualizado com as implementações recentes de exportação de dados.
+### 25/03/2025
+- **[Novo]** Criado documento `code_mode.md` (v1.0) para documentar as práticas, procedimentos e diretrizes do Modo Código
+- **[Atualização]** `changelog.md` atualizado para v1.8 para registrar a adição do modo Código
+
+### 24/03/2025
+- **[Novo]** Criado documento `debug_mode.md` (v1.0) para documentar procedimentos e metodologias de debugging
+- **[Atualização]** `index.md` atualizado para v2.3 para incluir referência ao documento de modo Debug
+- **[Atualização]** `changelog.md` atualizado para v1.7 para registrar a adição do modo Debug
 
 ### 26/09/2023 - Versão 1.6
 - **activeContext.md (v2.3)**: Atualizado para refletir a conclusão da adaptação dos componentes do módulo de Sono e início do planejamento para a migração do módulo de Humor.

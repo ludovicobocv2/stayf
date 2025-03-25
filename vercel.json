@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "cleanUrls": true,
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "https://tmuxbzneohqmvxzuvdxv.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRtdXhiem5lb2hxbXZ4enV2ZHh2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI4MzQxNjEsImV4cCI6MjA1ODQxMDE2MX0.jIH5nmttE529qhswWhDSa-GBUO8ITS4O0Xe7G9H34VU"
+  },
+  "outputDirectory": ".next"
+} 

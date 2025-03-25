@@ -22,7 +22,7 @@ export function useDataSync<T extends BaseItem>(config: SyncConfig<T>) {
   const subscriptionRef = useRef<any>(null);
   
   // Função segura para atualizar state
-  const safeSetState = useCallback(<S>(setter: React.Dispatch<React.SetStateAction<S>>, value: S) => {
+  const safeSetState = useCallback(<S,>(setter: React.Dispatch<React.SetStateAction<S>>, value: React.SetStateAction<S>) => {
     if (isMounted.current) {
       setter(value);
     }
@@ -36,7 +36,7 @@ export function useDataSync<T extends BaseItem>(config: SyncConfig<T>) {
       if (!isMounted.current) return;
       
       try {
-        safeSetState(setSyncStatus, 'syncing');
+        safeSetState(setSyncStatus, 'syncing' as React.SetStateAction<typeof syncStatus>);
         
         // Buscar dados do Supabase
         const { data: remoteData, error } = await supabase
@@ -52,11 +52,11 @@ export function useDataSync<T extends BaseItem>(config: SyncConfig<T>) {
         // Atualizar dados locais
         config.setLocalData(remoteData)
         
-        safeSetState(setSyncStatus, 'idle');
+        safeSetState(setSyncStatus, 'idle' as React.SetStateAction<typeof syncStatus>);
       } catch (error) {
         console.error('Erro na sincronização:', error)
         if (isMounted.current) {
-          safeSetState(setSyncStatus, 'error');
+          safeSetState(setSyncStatus, 'error' as React.SetStateAction<typeof syncStatus>);
         }
       }
     }

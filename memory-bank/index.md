@@ -1,6 +1,6 @@
 # Índice do Memory Bank
 
-**Status**: [CURRENT] | Última atualização: 24/03/2025 | Versão: 2.3
+**Status**: [CURRENT] | Última atualização: 25/03/2025 | Versão: 2.4
 
 ## Introdução
 Este documento serve como ponto central de navegação para toda a documentação do projeto, fornecendo links rápidos e resumos dos documentos disponíveis no Memory Bank.
@@ -18,6 +18,7 @@ O Memory Bank contém documentação abrangente sobre o projeto MyNeuroApp, cobr
 | [Decisions](./decisions.md) | 1.4 | 26/09/2023 | Registro de decisões técnicas e arquiteturais importantes, incluindo a estruturação das tabelas de humor. |
 | [TechDebt](./techDebt.md) | 1.2 | 25/09/2023 | Catálogo de dívidas técnicas identificadas, com priorização e planos de mitigação. |
 | [Debug Mode](./debug_mode.md) | 1.0 | 24/03/2025 | Procedimentos e metodologias para identificação e resolução de problemas no sistema. |
+| [Code Mode](./code_mode.md) | 1.0 | 25/03/2025 | Práticas, procedimentos e diretrizes para implementação e desenvolvimento de código. |
 
 ### Documentos de Navegação
 | Documento | Versão | Última Atualização | Descrição |
@@ -57,6 +58,11 @@ O Memory Bank contém documentação abrangente sobre o projeto MyNeuroApp, cobr
 
 ## Atualizações Recentes
 As atualizações mais recentes na documentação (últimos 7 dias):
+
+### 25/03/2025
+- **[Code Mode](./code_mode.md)**: Criado na v1.0 com práticas, procedimentos e diretrizes para o desenvolvimento de código.
+- **[Changelog](./changelog.md)**: Atualizado para v1.8 para registrar a adição do modo Código.
+- **[Index](./index.md)**: Atualizado para v2.4 para incluir referência ao documento de modo Código.
 
 ### 24/03/2025
 - **[Debug Mode](./debug_mode.md)**: Criado na v1.0 com procedimentos e metodologias para debugging.
