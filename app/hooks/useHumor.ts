@@ -28,13 +28,6 @@ export function useHumor() {
     };
   }, []);
   
-  // Função segura para atualizar state
-  const safeSetState = useCallback(<T>(setter: React.Dispatch<React.SetStateAction<T>>, value: T) => {
-    if (isMounted.current) {
-      setter(value);
-    }
-  }, []);
-  
   // Função para limpar erros
   const resetError = useCallback(() => {
     if (isMounted.current) {
@@ -48,8 +41,10 @@ export function useHumor() {
   const getMoodRecords = useCallback(async (): Promise<MoodRecord[]> => {
     if (!user || !isMounted.current) return [];
     
-    safeSetState(setIsLoading, true);
-    safeSetState(setError, null);
+    if (isMounted.current) {
+      setIsLoading(true);
+      setError(null);
+    }
     
     try {
       const { data, error } = await supabase
@@ -64,15 +59,15 @@ export function useHumor() {
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Erro ao buscar registros de humor';
       if (isMounted.current) {
-        safeSetState(setError, new Error(errorMessage));
+        setError(new Error(errorMessage));
       }
       return [];
     } finally {
       if (isMounted.current) {
-        safeSetState(setIsLoading, false);
+        setIsLoading(false);
       }
     }
-  }, [user, supabase, safeSetState]);
+  }, [user, supabase]);
   
   // Verificar duplicações antes da migração
   const checkDuplicates = useCallback(async (date: string): Promise<boolean> => {
